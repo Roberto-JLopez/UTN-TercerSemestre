@@ -1,10 +1,15 @@
+from NumerosIgualesException import NumerosIgualesException
+
 resultado = None
 
 
 try:
     a = int(input("Introduce el primer numero: "))
     b = int(input("Introduce el segundo numero: "))
+    if a == b:
+        raise NumerosIgualesException("Son numeros iguales")
     resultado = a / b  #modificamos
+
 except TypeError as e:
     print(f"TypeError - Ocurrio un error {type(e)}")
 except ZeroDivisionError as e:
