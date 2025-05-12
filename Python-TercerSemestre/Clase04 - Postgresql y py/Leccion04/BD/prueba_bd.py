@@ -5,10 +5,9 @@ conexion = psycopg2.connect(user="postgres",password="admin",host='127.0.0.1',po
 try:
     with conexion:
         with conexion.cursor() as cursor:
-            sentencia ='SELECT * FROM persona WHERE id_persona = %s' #placeholder
-            id_persona= input("Digite un numero para el id_persona:")
-            cursor.execute(sentencia, (id_persona,)) # DE ESTA MANERA EJECUTAMOS LA SETENCIA
-            registros = cursor.fetchone() # RECUPERAMOS TODOS LOS REGISTROS QUE SERAN UNA LISTA
+            sentencia ='SELECT * FROM persona where id_persona = 1'
+            cursor.execute(sentencia) # DE ESTA MANERA EJECUTAMOS LA SETENCIA
+            registros = cursor.fetchall() # RECUPERAMOS TODOS LOS REGISTROS QUE SERAN UNA LISTA
             print(registros)
 
 except Exception as e:
