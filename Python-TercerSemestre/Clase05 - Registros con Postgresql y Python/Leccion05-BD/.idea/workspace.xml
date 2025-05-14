@@ -5,10 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4f023c9-9ecc-4a21-a994-80293d426b0a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Clase01-Excepciones/Leccion01/.idea/Leccion01.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Clase01-Excepciones/Leccion01/.idea/Leccion01.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Clase01-Excepciones/Leccion01/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Clase01-Excepciones/Leccion01/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Clase04 - Postgresql y py/Leccion04/BD/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Clase04 - Postgresql y py/Leccion04/BD/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Clase04 - Postgresql y py/Leccion04/BD/prueba_bd.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Clase04 - Postgresql y py/Leccion04/BD/prueba_bd.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,22 +30,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.prueba_bd.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/OneDrive - frsr.utn.edu.ar/Programacion/UTN Tercer Semestre/TercerSemestreUFO/Python-TercerSemestre/Clase05 - Registros con Postgresql y Python/Leccion05-BD&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.prueba_bd.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/rober/OneDrive - frsr.utn.edu.ar/Programacion/UTN Tercer Semestre/UTN-TercerSemestre/Python-TercerSemestre/Clase05 - Registros con Postgresql y Python/Leccion05-BD",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="prueba_bd" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="BD" />
@@ -78,8 +74,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-PY-243.22562.220" />
-        <option value="bundled-python-sdk-0fc6c617c4bd-9a18a617cbe4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.22562.220" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.23726.102" />
+        <option value="bundled-python-sdk-5e1850174b45-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.23726.102" />
       </set>
     </attachedChunks>
   </component>
@@ -100,6 +96,7 @@
       <workItem from="1747017498336" duration="17000" />
       <workItem from="1747018393920" duration="322000" />
       <workItem from="1747018953254" duration="13000" />
+      <workItem from="1747106290087" duration="190000" />
     </task>
     <servers />
   </component>
