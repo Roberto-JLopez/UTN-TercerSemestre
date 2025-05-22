@@ -1,0 +1,40 @@
+Vamos a ir agregando los distintos pasos realizados
+
+cd D:\OneDrive - frsr.utn.edu.ar\Programacion\UTN - San Rafael\UTN Tercer Semestre\UTN-TercerSemestre\Codigo-Juego\Clase3_ Area Juegos
+mkdir Avatar
+mkdir public
+cd public 
+mkdir assets # mkdir para crear carpetas.
+mkdir js 
+mkdir css
+touch avatar.html    #touch para crear un archivo
+ls  # ls para listar archivos y carpetas (en Windows puedes usar dir).
+ctrl + k + c # se pone como comentario el codigo seleccionado
+ctrl + k + u  # se quita el comentario 
+
+<label for="Zuko">Zuko</label>: Esta etiqueta <label> sirve para proporcionar un nombre 
+visible al usuario. El atributo for="Zuko" está vinculado al id="Zuko" del elemento de entrada,
+ lo que significa que cuando el usuario hace clic en el texto "Zuko", el botón de opción
+  correspondiente se seleccionará automáticamente.
+
+<input type="radio" name="personaje" id="Zuko">: Aquí tienes un botón de opción (radio button) 
+que permite al usuario elegir entre múltiples opciones. Su atributo name="personaje" indica que
+ puede formar parte de un grupo de botones de opción, y el id="Zuko" lo vincula con el <label> 
+ anterior.
+
+
+ function seleccionarPersonajeJugador() {
+    if (document.getElementById('Zuko').checked) {
+        alert("HAS SELECCIONADO A ZUKO 🔥");
+    } else if (document.getElementById('Katara').checked) {
+        alert("HAS SELECCIONADO A KATARA 💧");
+    } else if (document.getElementById('Aang').checked) {
+        alert("HAS SELECCIONADO A AANG 🌪️");
+    } else if (document.getElementById('Toph').checked) {
+        alert("HAS SELECCIONADO A TOPH 🌱");
+    } else if (document.getElementById('Sokka').checked) {
+        alert("HAS SELECCIONADO A SOKKA ⚔️");
+    } else {
+        alert("Por favor, selecciona un personaje antes de continuar.");
+    }
+}
