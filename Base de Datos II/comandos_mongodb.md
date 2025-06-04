@@ -7,6 +7,8 @@ Esta guía está pensada para ayudarte a comenzar a usar MongoDB desde cero, exp
 
 ## 🟢 CONEXIÓN Y ENTORNO
 
+### `mongod`
+
 ### `mongosh`
 Abre la consola interactiva de MongoDB. Es donde vas a escribir todos los comandos.
 
