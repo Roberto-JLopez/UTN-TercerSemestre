@@ -196,6 +196,221 @@ Muestra los valores únicos de un campo.
 
 ---
 
+# 📘 Guía de Comandos Básicos de MongoDB
+
+Esta guía contiene los comandos y métodos de MongoDB utilizados para interactuar con bases de datos y colecciones, incluyendo operaciones de inserción, consulta y eliminación.
+
+---
+
+## 🗂️ **1. Gestión de Bases de Datos y Colecciones**
+
+### 🔹 **1.1. Seleccionar o Crear una Base de Datos**
+
+Para trabajar con una base de datos específica o crear una nueva:
+
+```javascript
+use <nombre_de_la_base_de_datos>
+```
+
+**Ejemplo:**
+
+```javascript
+use mi_nueva_base_de_datos
+```
+
+---
+
+### 🔹 **1.2. Eliminar la Base de Datos Actual**
+
+Este comando elimina la base de datos en la que te encuentras actualmente. ¡Úsalo con precaución!
+
+```javascript
+db.dropDatabase()
+```
+
+**Ejemplo:**
+
+```javascript
+// Si estás en mi_nueva_base_de_datos, este comando la eliminará.
+```
+
+---
+
+## 📁 **2. Operaciones con Colecciones**
+
+### ✏️ **2.1. Insertar Documentos**
+
+#### a) Insertar Múltiples Documentos (insertMany)
+
+Permite insertar varios documentos en una colección en una sola operación. Si la colección no existe, MongoDB la creará.
+
+```javascript
+db.<nombre_de_la_coleccion>.insertMany([
+  { <campo1>: <valor1>, <campo2>: <valor2> },
+  { <campo1>: <valorA>, <campo2>: <valorB> }
+])
+```
+
+**Ejemplo:**
+
+```javascript
+db.logico_uno.insertMany([
+  {"nombre": "registro1", "cantidad": 40},
+  {"nombre": "registro2", "cantidad": 10},
+  {"nombre": "registro3", "cantidad": 60}
+])
+```
+
+---
+
+### 🔍 **2.2. Consultar Documentos (find)**
+
+#### a) Mostrar Todos los Documentos
+
+```javascript
+db.<nombre_de_la_coleccion>.find({})
+```
+
+**Ejemplo:**
+
+```javascript
+db.logico_uno.find({})
+```
+
+Para una salida más legible (formato JSON prettified):
+
+```javascript
+db.<nombre_de_la_coleccion>.find({}).pretty()
+```
+
+**Ejemplo:**
+
+```javascript
+db.mis_usuarios.find({}).pretty()
+```
+
+#### b) Mostrar Solo Un Documento (findOne)
+
+```javascript
+db.<nombre_de_la_coleccion>.findOne()
+```
+
+**Ejemplo:**
+
+```javascript
+db.mis_usuarios.findOne()
+```
+
+#### c) Consultar Documentos por Criterio Específico
+
+```javascript
+db.<nombre_de_la_coleccion>.find({ <campo>: <valor> })
+```
+
+**Ejemplo:**
+
+```javascript
+db.mis_usuarios.find({"nombre_usuario": "usuario_c"})
+```
+
+---
+
+### ⚙️ **2.3. Operadores Lógicos de Consulta**
+
+#### a) $gte (Greater Than or Equal - Mayor o Igual que)
+
+```javascript
+db.<nombre_de_la_coleccion>.find({ <campo>: { "$gte": <valor> }})
+```
+
+**Ejemplo:**
+
+```javascript
+db.logico_uno.find({"cantidad": {"$gte": 20}})
+```
+
+#### b) $gt (Greater Than - Mayor que)
+
+```javascript
+db.<nombre_de_la_coleccion>.find({ <campo>: { "$gt": <valor> }})
+```
+
+**Ejemplo:**
+
+```javascript
+db.logico_dos.find({"edad": {"$gt": 20}})
+```
+
+#### c) $lt (Less Than - Menor que)
+
+```javascript
+db.<nombre_de_la_coleccion>.find({ <campo>: { "$lt": <valor> }})
+```
+
+**Ejemplo:**
+
+```javascript
+db.logico_dos.find({"edad": {"$lt": 40}})
+```
+
+#### d) $lte (Less Than or Equal - Menor o Igual que)
+
+```javascript
+db.<nombre_de_la_coleccion>.find({ <campo>: { "$lte": <valor> }})
+```
+
+**Ejemplo:**
+
+```javascript
+db.logico_tres.find({"visitas": {"$lte": 4000}})
+```
+
+#### e) Combinando Operadores Lógicos (AND implícito)
+
+```javascript
+db.<nombre_de_la_coleccion>.find({ <campo>: { "<operador1>": <valor1>, "<operador2>": <valor2> }})
+```
+
+**Ejemplo:**
+
+```javascript
+db.logico_dos.find({"edad": {"$gt": 20, "$lt": 40}})
+```
+
+```javascript
+db.logico_tres.find({"visitas": {"$gt": 2000, "$lte": 4000}})
+```
+
+---
+
+### 🛠️ **2.4. Comandos Útiles Extra**
+
+#### a) Contar Documentos (countDocuments)
+
+```javascript
+db.<nombre_de_la_coleccion>.countDocuments({ <filtro_opcional> })
+```
+
+**Ejemplo:**
+
+```javascript
+db.mis_usuarios.countDocuments({})
+db.registro_clientes.countDocuments({"edad": 30})
+```
+
+#### b) Obtener Valores Únicos de un Campo (distinct)
+
+```javascript
+db.<nombre_de_la_coleccion>.distinct("<nombre_del_campo>")
+```
+
+**Ejemplo:**
+
+```javascript
+db.autos.distinct("marca")
+```
+
+Descripción: Recupera todas las marcas únicas de vehículos en la colección `autos`.
 
 
 
