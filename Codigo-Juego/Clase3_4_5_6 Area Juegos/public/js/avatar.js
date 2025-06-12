@@ -7,7 +7,14 @@ let vidasJugador = 3;
 let vidasEnemigo = 3;
 
 
+let botonReglas;
+
+
+let botonesIniciales;
+
 function iniciarJuego() {
+    sectionContenedorReglas=document.getElementById("contenedor-reglas");
+    sectionContenedorReglas.style.display="none";
     let botonPersonajeJugador = document.getElementById("boton-personaje");
     botonPersonajeJugador.addEventListener("click", seleccionarPersonajeJugador);
     // botonPersonajeJugador.addEventListener("click", seleccionarPersonajecomputadora);
@@ -20,9 +27,34 @@ function iniciarJuego() {
     spanVidasJugador = document.getElementById("vidas-jugador");
     spanVidasEnemigo = document.getElementById("vidas-enemigo");
 
+    botonesIniciales=document.getElementById("botones-regla-jugar");
+    botonesIniciales.style.display="flex";
 
-   
+     botonVerReglas();
 
+    
+ 
+
+}
+function botonVerReglas(){
+
+    botonReglas=document.getElementById('reglas');
+    botonReglas.addEventListener('click',verReglas);
+    
+
+}
+
+function verReglas(){
+
+    botonesIniciales.style.display="none";
+   // sectionContenedorReglas=document.getElementById("contenedor-reglas");
+    sectionContenedorReglas.style.display="block";
+    volverInicio();
+}
+
+function volverInicio(){
+    let botonVolverInicio=document.getElementById("volver-inicio");
+    botonVolverInicio.addEventListener('click',iniciarJuego);
 }
 
 
@@ -78,7 +110,9 @@ function ataqueBarrida (){
     combate()
 }
 
-
+function aleatorio (min, max){  // a modo de ejemplo agregamos la funcion por separado proque es lo mismo que seleccionarpersonaje
+    return Math.floor(Math.random() * (max - min +1) + min);
+}
 
 function ataqueAleatorioEnemigo(){ // ahora ocupando la variable global nueva le decimos
     let ataqueAleatorio = aleatorio (1,3)
@@ -90,13 +124,9 @@ function ataqueAleatorioEnemigo(){ // ahora ocupando la variable global nueva le
     }else {
         ataqueEnemigo ='Barrida'
     }
+    
 
 }
-
-function aleatorio (min, max){
-    return Math.floor(Math.random() * (max - min +1) + min);
-}
-
 
 function combate() {
     let resultado;
@@ -116,11 +146,19 @@ function combate() {
         vidasJugador--;
         spanVidasJugador.innerHTML = vidasJugador;
     }
-
-    mostrarMensaje(`Seleccionaste: ${ataqueJugador} 🆚 Enemigo: ${ataqueEnemigo} ➤ ${resultado}`);
-
+    crearMensaje(resultado)
+    // mostrarMensaje(`Seleccionaste: ${ataqueJugador} 🆚 Enemigo: ${ataqueEnemigo} ➤ ${resultado}`);
+    
     revisarFinDelJuego();
 }
+
+function crearMensaje(resultado){
+    let sectionMensaje = document.getElementById('mensajes')
+    let parrafo = document.createElement('p')
+    parrafo.innerHTML = 'Tu personaje ataco con ' + ataqueJugador + '🆚 el personaje enemigo ataco con ' + ataqueEnemigo + ' - ' + resultado
+    sectionMensaje.appendChild(parrafo)
+}
+
 
 function revisarFinDelJuego() {
     if (vidasEnemigo == 0) {
@@ -137,6 +175,11 @@ function mostrarMensajeFinal(mensaje) {
     seccionMensajes.innerHTML += `<p><strong>${mensaje}</strong></p>`;
 }
 
+// function mostrarMensaje(mensaje) {
+//     const seccionMensajes = document.getElementById("mensajes");
+//     seccionMensajes.innerHTML = `<p>${mensaje}</p>`;
+// }
+
 function deshabilitarBotonesAtaque() {
     document.getElementById('boton-punio').disabled = true;
     document.getElementById('boton-patada').disabled = true;
@@ -144,10 +187,7 @@ function deshabilitarBotonesAtaque() {
 }
 
 
-function mostrarMensaje(mensaje) {
-    const seccionMensajes = document.getElementById("mensajes");
-    seccionMensajes.innerHTML = `<p>${mensaje}</p>`;
-}
+// 
 
 
 window.addEventListener('load', iniciarJuego);

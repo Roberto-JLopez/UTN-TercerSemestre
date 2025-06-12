@@ -251,3 +251,12 @@ Este proyecto me ayudó a repasar:
 - Variables globales
 - Funciones
 - Buenas prácticas en programación
+
+
+
+function crearMensaje(){
+    let seccionMensajes = document.getElementById('mensajes')
+    let parrafo = document.createElement('p')
+    parrafo.innerHTML = `Seleccionaste: ${ataqueJugador} 🆚 Enemigo: ${ataqueEnemigo} ➤ ${resultado}`;
+    seccionMensajes.appendChild(parrafo)
+}
