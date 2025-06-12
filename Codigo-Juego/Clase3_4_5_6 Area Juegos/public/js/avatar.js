@@ -8,8 +8,6 @@ let vidasEnemigo = 3;
 
 
 let botonReglas;
-
-
 let botonesIniciales;
 
 function iniciarJuego() {
