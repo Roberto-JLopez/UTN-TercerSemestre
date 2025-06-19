@@ -8,13 +8,31 @@ let vidasEnemigo = 3;
 
 
 let botonReglas;
+let botonJugar;
+
+let seccionMensajes;
 let botonesIniciales;
+
+let seccióntuataque; 
 
 function iniciarJuego() {
     sectionContenedorReglas=document.getElementById("contenedor-reglas");
     sectionContenedorReglas.style.display="none";
+
+     sectionContenedorpersonaje=document.getElementById("seleccionar-personaje");
+    sectionContenedorpersonaje.style.display="block";
+
+    sectionContenedorataque=document.getElementById("selecionar-ataque");
+    sectionContenedorataque.style.display="none";
+    seccionMensajes = document.getElementById("mensajes");
     let botonPersonajeJugador = document.getElementById("boton-personaje");
     botonPersonajeJugador.addEventListener("click", seleccionarPersonajeJugador);
+
+    let sectionReiniciar = document.getElementById("reiniciar")
+    sectionReiniciar.style.display = "none";
+    
+    let botonReiniciar = document.getElementById("boton-reiniciar");
+    botonReiniciar.addEventListener('click', reiniciarJuego)
     // botonPersonajeJugador.addEventListener("click", seleccionarPersonajecomputadora);
     let botonPunio = document.getElementById('boton-punio')
     botonPunio.addEventListener('click', ataquePunio)
@@ -28,8 +46,8 @@ function iniciarJuego() {
     botonesIniciales=document.getElementById("botones-regla-jugar");
     botonesIniciales.style.display="flex";
 
-     botonVerReglas();
-
+    botonVerReglas();
+    botonJuego();
     
  
 
@@ -50,6 +68,7 @@ function verReglas(){
     volverInicio();
 }
 
+
 function volverInicio(){
     let botonVolverInicio=document.getElementById("volver-inicio");
     botonVolverInicio.addEventListener('click',iniciarJuego);
@@ -64,6 +83,8 @@ function seleccionarPersonajeJugador() {
     let inputSokka = document.getElementById('Sokka');
     let spanPersonajeJugador = document.getElementById('personaje-jugador');
 
+    sectionContenedorReglas.style.display="none";
+    sectionContenedorataque.style.display="block";
     if (inputZuko.checked) {
         spanPersonajeJugador.innerHTML = 'Zuko';
     } else if (inputKatara.checked) {
@@ -80,7 +101,8 @@ function seleccionarPersonajeJugador() {
     }
 
 seleccionarPersonajecomputadora() 
-    
+
+ sectionContenedorpersonaje.style.display="none";
 }
 
 function seleccionarPersonajecomputadora() {
@@ -126,7 +148,8 @@ function ataqueAleatorioEnemigo(){ // ahora ocupando la variable global nueva le
 
 }
 
-function combate() {
+//Clase 18/06
+function combate() {        // modificamos la vida 
     let resultado;
 
     if (ataqueJugador == ataqueEnemigo) {
@@ -145,26 +168,32 @@ function combate() {
         spanVidasJugador.innerHTML = vidasJugador;
     }
     crearMensaje(resultado)
-    // mostrarMensaje(`Seleccionaste: ${ataqueJugador} 🆚 Enemigo: ${ataqueEnemigo} ➤ ${resultado}`);
+    
     
     revisarFinDelJuego();
 }
 
 function crearMensaje(resultado){
-    let sectionMensaje = document.getElementById('mensajes')
-    let parrafo = document.createElement('p')
-    parrafo.innerHTML = 'Tu personaje ataco con ' + ataqueJugador + '🆚 el personaje enemigo ataco con ' + ataqueEnemigo + ' - ' + resultado
-    sectionMensaje.appendChild(parrafo)
+    // Limpia completamente la sección de mensajes antes de añadir el nuevo.
+    seccionMensajes.innerHTML = ''; 
+
+    let parrafo = document.createElement('p');
+    parrafo.innerHTML = 'Tu personaje atacó con ' + ataqueJugador + '🆚 el personaje enemigo atacó con ' + ataqueEnemigo + ' - ' + resultado;
+    seccionMensajes.appendChild(parrafo);
 }
 
 
-function revisarFinDelJuego() {
+function revisarFinDelJuego() { // funcion para controlar las vidas ver si son distintos de 0
+    let sectionReiniciar = document.getElementById("reiniciar")
+
     if (vidasEnemigo == 0) {
         mostrarMensajeFinal("🎉 ¡Ganaste el juego completo! 🍾");
         deshabilitarBotonesAtaque();
+        sectionReiniciar.style.display = 'block';
     } else if (vidasJugador == 0) {
         mostrarMensajeFinal("💀 Has perdido el juego... ¡Inténtalo de nuevo!");
         deshabilitarBotonesAtaque();
+        sectionReiniciar.style.display = 'block';
     }
 }
 
@@ -173,10 +202,6 @@ function mostrarMensajeFinal(mensaje) {
     seccionMensajes.innerHTML += `<p><strong>${mensaje}</strong></p>`;
 }
 
-// function mostrarMensaje(mensaje) {
-//     const seccionMensajes = document.getElementById("mensajes");
-//     seccionMensajes.innerHTML = `<p>${mensaje}</p>`;
-// }
 
 function deshabilitarBotonesAtaque() {
     document.getElementById('boton-punio').disabled = true;
@@ -187,5 +212,9 @@ function deshabilitarBotonesAtaque() {
 
 // 
 
+function reiniciarJuego(){
+    //Vamos a usar un nuevo metodo llamado "location.reload()" para recargar la pagina
+    location.reload()
+}
 
 window.addEventListener('load', iniciarJuego);
